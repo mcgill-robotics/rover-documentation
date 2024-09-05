@@ -4,14 +4,6 @@ Welcome to the official documentation for **McGill Robotics Rover Team**. This g
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Project Overview](#project-overview)
-- [Team Structure](#team-structure)
-- [Software Systems](#software-systems)
-- [Hardware Systems](#hardware-systems)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [Support](#support)
 
 ---
 
@@ -36,11 +28,8 @@ Our team is divided into several sub-teams, each focusing on a critical aspect o
 
 The software for the rover is divided into several modules, each responsible for a specific functionality. This section covers:
 
-- [Control Systems](./software/control-systems.md)
-- [Autonomous Navigation](./software/autonomous-navigation.md)
-- [User Interface](./software/user-interface.md)
 
-We primarily use **ROS (Robot Operating System)** to manage our software components. Please refer to the [Software Setup Guide](./software/setup.md) to configure your environment.
+We primarily use **ROS (Robot Operating System)** to manage our software components. Please refer to the  to configure your environment.
 
 ## Hardware Systems
 
@@ -51,7 +40,7 @@ The rover is equipped with state-of-the-art hardware for planetary exploration. 
 - **Sensors**: LIDAR, cameras, and environmental sensors for data collection.
 - **Power System**: Efficient power management to ensure optimal performance during missions.
 
-Detailed information can be found in the [Hardware Documentation](./hardware/index.md).
+Detailed information can be found in the 
 
 ## Getting Started
 
