@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # McGill Rover Documentation
 
 Welcome to the official documentation for **McGill Robotics Rover Team**. This guide will help you understand the structure, systems, and software that power the McGill Rover. Whether you're a team member, contributor, or enthusiast, this documentation aims to provide all the resources you need to get started and stay informed.
