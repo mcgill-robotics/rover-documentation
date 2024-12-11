@@ -1,4 +1,4 @@
-# Pan-Tilt & GPS PCB Documentation
+# Pan-Tilt & GPS - Comms
 
 ## Purpose of the PCB
 The PCB is designed to:

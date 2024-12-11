@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Rover Documentation',
-  tagline: 'rovers are cool',
+  tagline: 'Doc or Cry',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -15,7 +15,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'ElecLeads', // Usually your GitHub org/user name.
+  organizationName: 'mcgill-robotics', // Usually your GitHub org/user name.
   projectName: 'rover-documentation', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
