@@ -70,7 +70,7 @@ const config: Config = {
       title: 'McGill Robotics',
       logo: {
         alt: 'McGill Robotics',
-        src: 'img/logo.svg',
+        src: 'img/Logo_white_on_black.png',
       },
       items: [
         {
