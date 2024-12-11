@@ -67,9 +67,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'McGill Robotics',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'McGill Robotics',
         src: 'img/logo.svg',
       },
       items: [
@@ -81,7 +81,12 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://mcgillrobotics.com/',
+          label: 'Main Website',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/mcgill-robotics/rover-documentation',
           label: 'GitHub',
           position: 'right',
         },
