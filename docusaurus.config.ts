@@ -90,6 +90,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://docs.google.com/spreadsheets/d/1Oeg_WPtlBZXyiplVIpyahuClL3fWfGzlk_3tDz--Uok/edit?gid=0#gid=0',
+          label: 'SpecIndex',
+          position: 'Right',
+        },
       ],
     },
     footer: {
