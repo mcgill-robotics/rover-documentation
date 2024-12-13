@@ -79,7 +79,6 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://mcgillrobotics.com/',
           label: 'Main Website',
@@ -93,7 +92,7 @@ const config: Config = {
         {
           href: 'https://docs.google.com/spreadsheets/d/1Oeg_WPtlBZXyiplVIpyahuClL3fWfGzlk_3tDz--Uok/edit?gid=0#gid=0',
           label: 'SpecIndex',
-          position: 'right',
+          position: 'left',
         },
       ],
     },
