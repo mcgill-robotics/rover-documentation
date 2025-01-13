@@ -21,11 +21,10 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Galileo',
-    PNG: require('@site/static/img/static/img/rover+sticker+galileo.png').default,
+    Png: require('@site/static/img/static/img/rover+sticker+galileo.png'),
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        2023-2024
       </>
     ),
   },
