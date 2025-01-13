@@ -1,0 +1,8 @@
+{
+  "label": "Pan Tilt GPS Board",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Sub-System: Communication"
+  }
+}

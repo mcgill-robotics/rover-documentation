@@ -1,4 +1,4 @@
-# Pan-Tilt & GPS - Comms
+# Hardware
 
 ## Purpose of the PCB
 The PCB is designed to:
