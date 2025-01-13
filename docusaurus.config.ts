@@ -85,6 +85,11 @@ const config: Config = {
           position: 'right',
         },
         {
+          href: 'https://github.com/orgs/mcgill-robotics/projects/50',
+          label: 'Taskboard',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/mcgill-robotics/rover-documentation',
           label: 'GitHub',
           position: 'right',
