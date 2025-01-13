@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Galileo',
-    Png: require('@site/static/img/static/img/rover+sticker+galileo.png'),
+    Png: require('@site/static/img/rover+sticker+galileo.png'),
     description: (
       <>
         2023-2024
