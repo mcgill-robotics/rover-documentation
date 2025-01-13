@@ -4,8 +4,8 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
-  Png?: React.ComponentType<React.ComponentProps<'png'>>; // Add this to support PNG images
+  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  // Png?: React.ComponentType<React.ComponentProps<'png'>>; // Add this to support PNG images
   description: JSX.Element;
 };
 
@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Galileo',
-    Png: require('@site/static/img/rover+sticker+galileo.png'),
+    Svg: require('@site/static/img/roverstickergalileo.svg').default,
     description: (
       <>
         2023-2024
