@@ -1,8 +1,8 @@
 {
-  "label": "BMS Board",
+  "label": "Base Station Board",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Sub-System: Power"
+    "description": "Sub-System: Communication"
   }
 }
