@@ -43,6 +43,15 @@ The PCB is designed to:
 1. On the back of the Teensy, locate the copper trace connecting the USB port to the Vin pin.
 2. Use an X-Acto knife to cut this copper trace. This ensures the Teensy is powered by the external 5V source instead of the USB connection.
 
+
+![Teensy VUSB](img/image1.png)
+
 ## Additional Resources
 - **How to Crimp Wires for Molex Connectors**: [YouTube Link](https://www.youtube.com/watch?v=WFvEeWHDt1E)
 - **Schematic**: [YouTube Link](https://www.youtube.com/watch?v=WFvEeWHDt1E)
+
+
+---
+## Schematic
+![PCB Layout](img/image2.png)
+
