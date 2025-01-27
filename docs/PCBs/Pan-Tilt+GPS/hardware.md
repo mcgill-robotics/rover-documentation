@@ -1,57 +1,40 @@
 # Hardware
+Pan-Tilt & GPS PCB Documentation  
+## **Purpose of the PCB:**   
+Read UART output from GPS and control two Pan-Tilt servo motors.
 
-## Purpose of the PCB
-The PCB is designed to:
-- Read UART output from GPS.
-- Control two Pan-Tilt servo motors.
+## **Functionality Description:**   
+The Teensy4.0 reads UART data from GPS (input), reads the rover’s angle position data with a gyroscope (input), and sends instructions to the servos (output). It communicates with the Jetson via USB.
 
-## Functionality Description
-- **Inputs**: 
-  - Reads UART data from GPS.
-  - Reads the rover’s angle position data using a gyroscope.
-- **Outputs**: 
-  - Sends instructions to the servos.
-  - Communicates with the Jetson via USB.
+## ***Components Communication:***
 
-## Components Communication
-1. **Microcontroller**: A Teensy 4.0 is mounted on the PCB.
-2. **Servo Motors**: 
-   - Each servo’s PWM pin connects to a PWM pin on the Teensy for control.
-3. **GPS**:
-   - TX pin (GPS) → RX pin (Teensy).
-   - RX pin (GPS) → TX pin (Teensy).
-4. **Gyroscope**:
-   - SDA pin (Gyro) → SDA pin (Teensy).
-   - SCL pin (Gyro) → SCL pin (Teensy).
+- A teensy4.0, is mounted on the PCB. The 2 servos, the GPS and the gyroscope each have an associated connector mounted on the PCB.   
+- Each servo’s PWM pin connects to a PWM pin on the Teensy, allowing us to control the servos.  
+- The GPS TX pin connects to the Teensy RX pin and the GPS RX pin connects to the Teensy TX pin, enabling the Teensy to read GPS UART outputs.   
+- The Teensy SDA and SCL pins are respectively connected to the gyroscope SDA and SCL pins, allowing us to read data on the rover’s position and orientation.
 
-## Components Connections (Routing)
-| Teensy Pin | Connected To         |
-|------------|----------------------|
-| 23         | Servo 1 PWM          |
-| 22         | Servo 2 PWM          |
-| 0          | GPS TX               |
-| 1          | GPS RX               |
-| 17         | Gyro SDA             |
-| 16         | Gyro SCL             |
-| 2          | LED1                 |
+***Components Connections (routing):***
+| Pin | Function |
+| :---- | :---- |
+| Teensy 18 | Servo1 PWM |
+| Teensy 19 | Servo2 PWM |
+| Teensy 0  | GPS TX |
+| Teensy 1 | GPS RX |
+| Teensy 24 | Gyro SDA |
+| Teensy 25 | Gyro SCL |
+| Teensy 20 | LED1 |
 
-## Power & Grounding
-- **Power Source**: All components are powered by an external 5V source, distributed to each component's VCC pin via internal PCB routing.
-- **Grounding**: Includes a net tie to separate the Teensy ground from the components ground.
+***Power & Grounding:***
 
-## Notes for Assembling
-1. On the back of the Teensy, locate the copper trace connecting the USB port to the Vin pin.
-2. Use an X-Acto knife to cut this copper trace. This ensures the Teensy is powered by the external 5V source instead of the USB connection.
+- All components on the board are powered by an external 5V source, through one connector. The power is then distributed to each component’s VCC pin through the PCB’s internal routing.   
+- The circuit's ground routing includes a net tie, separating the Teensy ground from the components ground.
 
+## **Notes for Assembling:**  
+On the back of the Teensy, there is a copper trace connecting the USB port to the Vin pin. Using an X-Acto knife, cut this copper trace to disconnect them. (This is so that the Teensy draws power from the external 5V, and not its micro USB connection.)  
+![](img/image1.png)
 
-![Teensy VUSB](img/image1.png)
+## **How to crimp wires for molex connectors:**  
+[***https://www.youtube.com/watch?v=WFvEeWHDt1E***](https://www.youtube.com/watch?v=WFvEeWHDt1E)     ***(3:15)***
 
-## Additional Resources
-- **How to Crimp Wires for Molex Connectors**: [YouTube Link](https://www.youtube.com/watch?v=WFvEeWHDt1E)
-- **Schematic**: [YouTube Link](https://www.youtube.com/watch?v=WFvEeWHDt1E)
-
-
----
-## Schematic
-![PCB Layout](img/image2.png)
-
+## **Schematic:**  
+![](img/image2.png)  
