@@ -11,21 +11,11 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Galileo',
+    title: 'Halley',
     Svg: require('@site/static/img/roverstickergalileo.svg').default,
     description: (
       <>
-        2021-2023
+        2025
       </>
     ),
   },
@@ -39,11 +29,21 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Halley',
+    title: 'Galileo',
     Svg: require('@site/static/img/roverstickergalileo.svg').default,
     description: (
       <>
-        2025
+        2021-2023
+      </>
+    ),
+  },
+  {
+    title: 'Easy to Use',
+    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    description: (
+      <>
+        Docusaurus was designed from the ground up to be easily installed and
+        used to get your website up and running quickly.
       </>
     ),
   },
