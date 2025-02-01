@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Fourier',
-    Svg: require('@site/static/img/rover+sticker+galileo.svg').default,
+    Svg: require('@site/static/img/roverstickergalileo.svg').default,
     description: (
       <>
         2021-2023
