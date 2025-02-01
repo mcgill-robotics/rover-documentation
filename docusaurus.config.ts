@@ -80,11 +80,6 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://mcgillrobotics.com/',
-          label: 'Main Website',
-          position: 'right',
-        },
-        {
           href: 'https://github.com/orgs/mcgill-robotics/projects/50',
           label: 'Taskboard',
           position: 'right',
@@ -105,11 +100,19 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Quick Links',
           items: [
             {
               label: 'Documentation',
               to: '/docs/rover-document',
+            },
+            {
+              label: 'SpecIndex',
+              href: 'https://docs.google.com/spreadsheets/d/1Oeg_WPtlBZXyiplVIpyahuClL3fWfGzlk_3tDz--Uok/edit?gid=0#gid=0',
+            },
+            {
+              label: 'Elec Taskboard',
+              href: 'https://github.com/orgs/mcgill-robotics/projects/50',
             },
           ],
         },
@@ -117,16 +120,24 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Main Website',
+              href: 'https://mcgillrobotics.com/',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Youtube',
+              href: 'https://youtube.com/@mcgillrobotics',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Instagram',
+              href: 'https://instagram.com/mcgillrobotics',
+            },
+            {
+              label: 'Facebook',
+              href: 'https://facebook.com/mcgillrobotics',
+            },
+            {
+              label: 'McGill',
+              href: 'https://www.mcgill.ca/engineeringdesign/design-teams/mcgill-robotics',
             },
           ],
         },
@@ -138,7 +149,7 @@ const config: Config = {
             //   to: '/blog',
             // },
             {
-              label: 'GitHub',
+              label: 'GitHub Repo',
               href: 'https://github.com/mcgill-robotics/rover-documentation',
             },
           ],
