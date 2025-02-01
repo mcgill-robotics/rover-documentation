@@ -25,7 +25,25 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/roverstickergalileo.svg').default,
     description: (
       <>
+        2021-2023
+      </>
+    ),
+  },
+  {
+    title: 'Fourier',
+    Svg: require('@site/static/img/roverstickergalileo.svg').default,
+    description: (
+      <>
         2023-2024
+      </>
+    ),
+  },
+  {
+    title: 'Halley',
+    Svg: require('@site/static/img/roverstickergalileo.svg').default,
+    description: (
+      <>
+        2025
       </>
     ),
   },
