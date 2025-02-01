@@ -4,8 +4,8 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  // Png?: React.ComponentType<React.ComponentProps<'png'>>; // Add this to support PNG images
+  Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
+  Png?: string; // Use string type for PNG since it's imported as a path
   description: JSX.Element;
 };
 
@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Galileo',
-    Svg: require('@site/static/img/roverstickergalileo.svg').default,
+    Png: require('@site/static/img/rover+sticker+galileo.png').default,
     description: (
       <>
         2021-2023
@@ -59,11 +59,31 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+
+// Now thats my kind of version control :p
+// function Feature({title, Svg, description}: FeatureItem) {
+//   return (
+//     <div className={clsx('col col--4')}>
+//       <div className="text--center">
+//         <Svg className={styles.featureSvg} role="img" />
+//       </div>
+//       <div className="text--center padding-horiz--md">
+//         <Heading as="h3">{title}</Heading>
+//         <p>{description}</p>
+//       </div>
+//     </div>
+//   );
+// }
+
+function Feature({ title, Svg, Png, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        {Png ? (
+          <img src={Png} alt={title} className={styles.featureImg} /> // Render PNG if available
+        ) : Svg ? (
+          <Svg className={styles.featureSvg} role="img" />
+        ) : null}
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
