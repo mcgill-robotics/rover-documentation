@@ -20,8 +20,8 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Fourier',
-    Svg: require('@site/static/img/roverstickergalileo.svg').default,
+    title: 'Galileo',
+    Png: require('@site/static/img/rover+sticker+galileo.png').default,
     description: (
       <>
         2023-2024
@@ -29,34 +29,14 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Galileo',
-    Png: require('@site/static/img/rover+sticker+galileo.png').default,
+    title: 'Fourier',
+    Svg: require('@site/static/img/rover+sticker+galileo.svg').default,
     description: (
       <>
         2021-2023
       </>
     ),
-  },
-  {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
+  }
 ];
 
 
