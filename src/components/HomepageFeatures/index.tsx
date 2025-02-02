@@ -12,7 +12,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Halley',
-    Svg: require('@site/static/img/roverstickergalileo.svg').default,
+    Png: require('@site/static/img/precursor_Halley.png').default,
     description: (
       <>
         2025
