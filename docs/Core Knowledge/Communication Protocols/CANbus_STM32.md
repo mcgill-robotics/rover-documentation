@@ -1,4 +1,4 @@
-# **CAN Bus — STM32**
+# CAN Bus — STM32
 
 ### **General Overview of CAN:**
 
