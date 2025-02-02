@@ -39,7 +39,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/mcgill-robotics/rover-documentation',
+            'https://github.com/mcgill-robotics/rover-documentation/blob/main/docs/',
         },
         blog: {
           showReadingTime: true,
@@ -50,7 +50,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/mcgill-robotics/rover-documentation',
+            'https://github.com/mcgill-robotics/rover-documentation/blob/main/blogs/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
