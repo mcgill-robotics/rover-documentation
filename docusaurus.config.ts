@@ -119,7 +119,7 @@ const config: Config = {
         },
         {
           href: 'https://github.com/orgs/mcgill-robotics/projects/50',
-          label: 'Taskboard',
+          label: '📋Taskboard',
           position: 'right',
         },
         // {
