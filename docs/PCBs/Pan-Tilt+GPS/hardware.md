@@ -16,13 +16,13 @@ The Teensy4.0 reads UART data from GPS (input), reads the rover’s angle positi
 ***Components Connections (routing):***
 | Pin | Function |
 | :---- | :---- |
-| Teensy 18 | Servo1 PWM |
-| Teensy 19 | Servo2 PWM |
+| Teensy 23 | Servo1 PWM |
+| Teensy 22 | Servo2 PWM |
 | Teensy 0  | GPS TX |
 | Teensy 1 | GPS RX |
-| Teensy 24 | Gyro SDA |
-| Teensy 25 | Gyro SCL |
-| Teensy 20 | LED1 |
+| Teensy 17 | Gyro SDA |
+| Teensy 16 | Gyro SCL |
+| Teensy 21 | LED1 |
 
 ***Power & Grounding:***
 
