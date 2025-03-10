@@ -118,6 +118,12 @@ const config: Config = {
           label: 'Documentation',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
+          position: 'left',
+          label: 'Fundamentals',
+        },
+        {
           href: 'https://github.com/orgs/mcgill-robotics/projects/50',
           label: '📋Taskboard',
           position: 'right',
