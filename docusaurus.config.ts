@@ -41,6 +41,13 @@ const config: Config = {
           editUrl:
             'https://github.com/mcgill-robotics/rover-documentation/blob/main',
         },
+        fundamentals: {
+          sidebarPath: './sidebars.ts',
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/mcgill-robotics/rover-documentation/blob/main',
+        },
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -102,6 +109,12 @@ const config: Config = {
         autoCollapseCategories: true,
       },
     },
+    fundamentals: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -118,7 +131,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          type: 'docSidebar',
+          type: 'fundamentalsSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Fundamentals',
