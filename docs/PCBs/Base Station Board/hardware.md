@@ -27,7 +27,7 @@ Power for servo comes from the same raw 12V power supply.
 
 ## Schematic
 
-![]![](img/image1.png)
+![](img/image1.png)
 
 ### Components list
 
