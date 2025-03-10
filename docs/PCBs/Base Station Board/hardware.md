@@ -1,13 +1,15 @@
-# Base Antenna PCB Documentation
+# Hardware
 
-# Purpose and functionality
+Base Antenna PCB Documentation
+
+## Purpose and functionality
 
 This PCB functions as a control unit for the base station antenna. It reads the UART signal from the GPS, and the I2C signal from the magnetometer, processes them using the Teensy 4.0, then drives the servo motor to turn the antenna towards the rover. The PCB also serves as a router for the servo motor 12V power supply, to keep wiring tidy and centralized.   
 The LEDs are just for monitoring the system status.
 
-# Component wiring
+## Component wiring
 
-## Pinout 
+### Pinout 
 
 | Teensy 17 | Magnetometer SDA |
 | :---- | :---- |
@@ -18,16 +20,16 @@ The LEDs are just for monitoring the system status.
 | Teensy 3 | LED 1 |
 | Teensy 4 | LED 2 |
 
-## Power supply
+### Power supply
 
 Power for the Teensy, magnetometer and GPS come from the 12V power supply converted to 5V (the LDO Linear Regulator used for this has a max output current of 1A)  
 Power for servo comes from the same raw 12V power supply.
 
-# Schematic
+## Schematic
 
 ![][image1]
 
-## Components list
+### Components list
 
 | Name on PCB  | Manufacturer code |
 | :---- | :---- |
