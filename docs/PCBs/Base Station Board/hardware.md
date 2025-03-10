@@ -27,7 +27,7 @@ Power for servo comes from the same raw 12V power supply.
 
 ## Schematic
 
-![][image1]
+![]![](img/image1.png)
 
 ### Components list
 
@@ -40,5 +40,3 @@ Power for servo comes from the same raw 12V power supply.
 | J-INPUT-POWER | Molex 3mm 4pin through hole  |
 | R1, R2, R3, R4 | 470R 0.125W 5% 0805 (2012 metric) SMD  |
 | Teensy 4.0 | Teensy 4.0  |
-
-[image1]: <img/image1.png>

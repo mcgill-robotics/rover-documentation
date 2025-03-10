@@ -38,19 +38,12 @@ One common ground is outputted to the rest of the rover. This ground is disconne
 
 ## **Diagram:** 
 
-![][image5]
+![](img/image5.png)
 
 ## Schematic:
 
-**![][image2]**  
-![][image3]  
-![][image4]  
-![][image1]  ![][image6]  
-
-
-[image1]: <img/image1.png>
-[image2]: <img/image2.png>
-[image3]: <img/image3.png>
-[image4]: <img/image4.png>
-[image5]: <img/image5.png>
-[image6]: <img/image6.png>
+**![](img/image2.png)**  
+![](img/image3.png)  
+![](img/image4.png)  
+![](img/image1.png)  
+![](img/image6.png)
