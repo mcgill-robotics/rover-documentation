@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'PCBs',
-      collapsed: false,
+      // collapsed: false,
       items: [
         // 'PCB-intro',
         {
@@ -33,7 +33,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Mechanical Assembly',
-      collapsed: false,
+      // collapsed: false,
       items: [
         // 'PCB-intro',
         {
