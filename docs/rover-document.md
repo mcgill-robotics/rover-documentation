@@ -41,7 +41,7 @@ The rover is equipped with state-of-the-art hardware for planetary exploration. 
 
 - **Chassis & Suspension**: Designed for rugged terrains.
 - **Manipulator Arm**: Capable of precise movements for handling objects.
-- **Sensors**: LIDAR, cameras, and environmental sensors for data collection.
+- **Sensors**: Cameras, and environmental sensors for data collection.
 - **Power System**: Efficient power management to ensure optimal performance during missions.
 
 Detailed information can be found in the 
