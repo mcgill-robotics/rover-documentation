@@ -152,12 +152,6 @@ const config: Config = {
           label: 'API',
         },
         {
-          to: '/community/support',
-          label: 'Community',
-          position: 'left',
-          activeBaseRegex: `/community/`,
-        },
-        {
           href: 'https://github.com/orgs/mcgill-robotics/projects/50',
           label: '📋Taskboard',
           position: 'right',
