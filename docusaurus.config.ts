@@ -148,8 +148,8 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          sidebarId: 'api',
-          label: 'API',
+          sidebarId: 'fundamentals',
+          label: 'Fundamentals',
         },
         {
           href: 'https://github.com/orgs/mcgill-robotics/projects/50',
