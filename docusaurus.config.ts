@@ -148,7 +148,7 @@ const config: Config = {
         {
           type: 'docSidebar',
           position: 'left',
-          sidebarId: 'fundamentals',
+          sidebarId: 'fundamentalsSidebar',
           label: 'Fundamentals',
         },
         {
