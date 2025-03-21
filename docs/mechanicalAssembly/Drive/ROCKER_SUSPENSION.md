@@ -15,7 +15,7 @@ It is based on a hybrid rocker suspension, where there are two rocking links on 
 
 ### CAD
 
-> GitHub Path: Rover\_v05\\DRIVE\\SUSPENSION
+> **GitHub Path:** Rover\_v05\\DRIVE\\SUSPENSION
 
 ![](img\rocker\image13.png)
 

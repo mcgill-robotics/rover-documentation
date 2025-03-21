@@ -14,7 +14,7 @@ The steering mechanism is used to transmit the torque from the steering motor to
 
 ### CAD
 
-GitHub Path: Rover\_v05\\DRIVE\\STEERING MECHANISM
+> **GitHub Path:** Rover\_v05\\DRIVE\\STEERING MECHANISM
 
 ![](img\steering\image9.png)![](img\steering\image1.png) 
 ![](img\steering\image20.png)![](img\steering\image9.png)
