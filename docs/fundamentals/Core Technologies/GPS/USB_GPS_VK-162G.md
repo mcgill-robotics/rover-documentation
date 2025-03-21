@@ -10,9 +10,8 @@
 * This module works with WindowsOS, MacOS, Linux, Android, and Raspberry pi
 
 ### Image:
-<div>
-<img src="img/VK-162_G-Mouse_USB_GPS.png" width="50%" />
-</div>
+
+![](img/VK-162_G-Mouse_USB_GPS.png)
 
 ## Extracting GPS data:
 
