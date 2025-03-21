@@ -1,18 +1,18 @@
-**Steering Mechanism**
+# Steering Mechanism
 
-## System: Drive
+### System: Drive
 
-# **Mechanical Design:**
+## **Mechanical Design:**
 
-## Goal and purpose
+### Goal and purpose
 
 The steering mechanism’s purpose is to indirectly drive the steering assembly. Instead of the steering motor shaft taking the stresses and loads while the rover is driving, the goal is to have this mechanism’s steel shaft take the reaction forces. Another purpose for this mechanism is to connect the steering bracket to the end of the suspension.
 
-## Functionality
+### Functionality
 
 The steering mechanism is used to transmit the torque from the steering motor to an output shaft that will drive the steering bracket and wheel assembly. Gears are used to transmit the power.
 
-## CAD
+### CAD
 
 GitHub Path: Rover\_v05\\DRIVE\\STEERING MECHANISM
 
@@ -20,25 +20,25 @@ GitHub Path: Rover\_v05\\DRIVE\\STEERING MECHANISM
 ![](img\steering\image20.png)![](img\steering\image9.png)
 
 
-# **Specifications:**
+## **Specifications:**
 
-## Bounding box dimensions
+### Bounding box dimensions
 
 110x190.29x49.53 \[mm\] (with motor)  
 110x90.86x49.53 \[mm\] (without motor)
 
-## Material(s)
+### Material(s)
 
 - Aluminum 6061-T6: Machined/laser cut brackets  
 - AerMet 310: Output shaft  
 - Carbon Steel 1045: Gears, collar, bearings  
 - PETG: Spacers, covers, limit switch arm, 
 
-## Weight
+### Weight
 
 654g (without motor and fastener)
 
-## Included electrical components
+### Included electrical components
 
 - 1 x Limit switch ZMA00A150L04PC  
 - Placed at the top of the assembly.  
@@ -47,7 +47,7 @@ GitHub Path: Rover\_v05\\DRIVE\\STEERING MECHANISM
 
 ![](img\steering\image19.png)
 
-## Motor and Gearbox Specification
+### Motor and Gearbox Specification
 
 - Weight: 360g  
 - Voltage: 24V  
@@ -61,7 +61,7 @@ GitHub Path: Rover\_v05\\DRIVE\\STEERING MECHANISM
 ![](img\steering\image7.png) 
 L \= 45mm
 
-## Power Transmission Specification
+### Power Transmission Specification
 
 - Gear ratio: 1:1  
 - Gears in assembly:   
@@ -73,9 +73,9 @@ L \= 45mm
     Specs: 1.5M, 24 teeth, 8mm bore, 3mm key hole, 1045 carbon steel  
     [https://us.misumi-ec.com/vona2/detail/110300428520/?HissuCode=GEAKBB1.5-24-15-B-8N\&PNSearch=GEAKBB1.5-24-15-B-8N\&searchFlow=results2type\&KWSearch=GEAKBB1.5-24-15-B-8N](https://us.misumi-ec.com/vona2/detail/110300428520/?HissuCode=GEAKBB1.5-24-15-B-8N&PNSearch=GEAKBB1.5-24-15-B-8N&searchFlow=results2type&KWSearch=GEAKBB1.5-24-15-B-8N) 
 
-## Functionality of assembly 
+### Functionality of assembly 
 
-### Output Shaft Stack Up and Functionality
+#### Output Shaft Stack Up and Functionality
 
 | ![](img\steering\image3.png) |  Stack up: |
 | :---: | ----- |
@@ -89,7 +89,7 @@ L \= 45mm
 |  | Shaft Flange: Keep stack up from falling out |
 |  | Steering bracket connection plate |
 
-### Motor Shaft Stack Up and Functionality
+#### Motor Shaft Stack Up and Functionality
 
 | ![](img\steering\image5.png) |  Stack up: |
 | :---- | ----- |
@@ -99,13 +99,13 @@ L \= 45mm
 |  | Alignment Shaft: Help with axial alignment |
 |  | Ball Bearing: Reduce friction and align shaft |
 
-# 
+## 
 
-# **Mechanical Simulation and Analysis:**
+## **Mechanical Simulation and Analysis:**
 
-## Static Simulation
+### Static Simulation
 
-### Output shaft
+#### Output shaft
 
 - Case study: Rover drops from 0.5m  
 - Set-up:  
@@ -148,7 +148,7 @@ L \= 45mm
 | :---: | :---: |
 | ![](img\steering\image6.png) | ![](img\steering\image16.png) |
 
-### Brackets connecting suspension to steering
+#### Brackets connecting suspension to steering
 
 - Case study: Rover drives into a wall, according to suspension Matlab simulation  
 - Set-up:  
@@ -169,7 +169,7 @@ L \= 45mm
 | :---: | ----- |
 | ![](img\steering\image15.png) | ![](img\steering\image10.png) |
 
-## Motor & Power Transmission Calculations
+### Motor & Power Transmission Calculations
 
 Motors are rated for 7.15Nm torque and 15 RPM corresponding to 0.015062 hp. The gears need to be able to take and transmit this load in addition to a safety factor.  
 The following website was used to find the correct gears for this application.  
@@ -200,7 +200,7 @@ Since the motor’s corresponding hp is calculated from the toque with a safety 
 Additional documentation for motor selection:  
 [Steering Motor Selection Process](https://docs.google.com/document/d/1G8tH65Sch3DyAUgKkcOe7X5swMmq2XpTk6KxpRKquhc/edit?usp=sharing)
 
-# **Assembly and Machining:**
+## **Assembly and Machining:**
 
 Parts made from aluminum are standard sheet metal thicknesses (excluding the bottom plate placed under the gears). The parts were ordered and laser cut through Sendcutsend. Post machining processes include tapping the M3 holes in the connection plate, drilling, tapping, and milling the top plate to fit bearing tolerances and add counterbore holes. 
 
@@ -218,12 +218,12 @@ Bearing: (608ZZ)
 
 3D parts printed include the cover, limit switch arm, and all spacers.
 
-## Assembly to Rover
+### Assembly to Rover
 
 Assembly to steering bracket uses the connecting bracket and 4 x M4-10mm countersink screws  
 Assembly to suspension square-channel uses 2 x M5-55mm screws and M5 nuts.
 
-## Physical part/assembly
+### Physical part/assembly
 
 For initial testing, while waiting for parts to get machined, a 3D-printed version of the assembly was made.
 
@@ -233,15 +233,15 @@ Final Assembly:
 
 *Insert assembled picture*
 
-# 
+## 
 
-# **Appendix**
+## **Appendix**
 
-## BOM
+### BOM
 
 ![](img\steering\image18.png)
 
-## Mechanical Drawings
+### Mechanical Drawings
 
 Output shaft  
 ![](img\steering\image4.png)
