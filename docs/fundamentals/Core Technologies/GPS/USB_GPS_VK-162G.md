@@ -11,7 +11,7 @@
 
 ### Image:
 <div>
-<img src="VK-162_G-Mouse_USB_GPS.png" width="50%" />
+<img src="img/VK-162_G-Mouse_USB_GPS.png" width="50%" />
 </div>
 
 ## Extracting GPS data:
