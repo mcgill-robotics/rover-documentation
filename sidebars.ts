@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'PCBs',
+      collapsed: false,
       items: [
         // 'PCB-intro',
         {
