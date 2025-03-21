@@ -139,12 +139,12 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {
-          type: 'fundamentalsSidebar',
-          sidebarId: 'fundamentalSidebar',
-          position: 'left',
-          label: 'Fundamentals',
-        },
+        // {
+        //   type: 'fundamentalsSidebar',
+        //   sidebarId: 'fundamentalSidebar',
+        //   position: 'left',
+        //   label: 'Fundamentals',
+        // },
         {
           type: 'docSidebar',
           position: 'left',
