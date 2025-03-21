@@ -1,6 +1,9 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
+
+
 
 const config: Config = {
   title: 'Rover Documentation',
@@ -29,6 +32,21 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  plugins: [
+    [
+      'content-docs',
+      {
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
+        editCurrentVersion: true,
+        sidebarPath: './sidebarsCommunity.js',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      } satisfies DocsOptions,
+    ],
+  ],
 
   presets: [
     [
@@ -109,12 +127,12 @@ const config: Config = {
         autoCollapseCategories: true,
       },
     },
-    fundamentals: {
-      sidebar: {
-        hideable: true,
-        autoCollapseCategories: true,
-      },
-    },
+    // fundamentals: {
+    //   sidebar: {
+    //     hideable: true,
+    //     autoCollapseCategories: true,
+    //   },
+    // },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -135,6 +153,12 @@ const config: Config = {
           sidebarId: 'fundamentalSidebar',
           position: 'left',
           label: 'Fundamentals',
+        },
+        {
+          type: 'docSidebar',
+          position: 'left',
+          sidebarId: 'api',
+          label: 'API',
         },
         {
           to: '/community/support',
