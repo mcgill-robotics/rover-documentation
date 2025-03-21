@@ -2,7 +2,7 @@
  title: "Embedded PDF Example"
  ---
  
- # Embedded PDF Example
+ ## Embedded PDF Example
  
  Below is an embedded PDF file that is hosted locally in the GitHub repository.
  
