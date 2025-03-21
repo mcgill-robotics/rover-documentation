@@ -132,9 +132,15 @@ const config: Config = {
         },
         {
           type: 'fundamentalsSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'fundamentalSidebar',
           position: 'left',
           label: 'Fundamentals',
+        },
+        {
+          to: '/community/support',
+          label: 'Community',
+          position: 'left',
+          activeBaseRegex: `/community/`,
         },
         {
           href: 'https://github.com/orgs/mcgill-robotics/projects/50',
