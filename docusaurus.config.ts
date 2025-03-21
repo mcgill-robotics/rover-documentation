@@ -50,13 +50,13 @@ const config: Config = {
           editUrl:
             'https://github.com/mcgill-robotics/rover-documentation/blob/main',
         },
-        fundamentals: {
-          sidebarPath: './librarysidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/mcgill-robotics/rover-documentation/blob/main',
-        },
+        // fundamentals: {
+        //   sidebarPath: './librarysidebars.ts',
+        //   // Please change this to your repo.
+        //   // Remove this to remove the "edit this page" links.
+        //   editUrl:
+        //     'https://github.com/mcgill-robotics/rover-documentation/blob/main',
+        // },
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -239,7 +239,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  },
+  } satisfies Preset.ThemeConfig,
 };
 
 export default config;
