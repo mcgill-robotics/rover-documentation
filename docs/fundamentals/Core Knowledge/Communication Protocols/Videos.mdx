@@ -1,0 +1,34 @@
+---
+title: Embedding YouTube Videos in Docusaurus
+description: Learn how to embed YouTube videos in your Docusaurus pages.
+---
+
+# Embedding YouTube Videos in Docusaurus
+
+You can easily embed YouTube videos into your Docusaurus pages using the `iframe` HTML tag. Here's how:
+
+## Steps:
+
+1.  **Get the YouTube Video Embed Code:**
+    * Go to the YouTube video you want to embed.
+    * Click the "Share" button below the video.
+    * Select the "Embed" option.
+    * Copy the `<iframe>` code provided.
+
+2.  **Paste the Embed Code into your MDX File:**
+    * In your Docusaurus MDX file, paste the copied `<iframe>` code where you want the video to appear.
+
+## Example:
+
+Here's an example of how to embed a YouTube video:
+
+```mdx
+<iframe
+  width="560"
+  height="315"
+  src="[https://www.youtube.com/embed/dQw4w9WgXcQ](https://www.google.com/search?q=https://www.youtube.com/embed/dQw4w9WgXcQ)"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
