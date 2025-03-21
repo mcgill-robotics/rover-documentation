@@ -59,7 +59,7 @@ N/A
 
 #### Rocking Mechanism
 
-|  | Bearings are press-fit into aluminum bearing housing, then  rocking shaft is inserted into bearing bores and tightened using M14 nut. The nut is to prevent the shaft from sliding out even though it is press fit. |
+| ![](img\rocker\image8.png) | Bearings are press-fit into aluminum bearing housing, then  rocking shaft is inserted into bearing bores and tightened using M14 nut. The nut is to prevent the shaft from sliding out even though it is press fit. |
 | :---- | :---- |
 
 #### Linkages and Springs
