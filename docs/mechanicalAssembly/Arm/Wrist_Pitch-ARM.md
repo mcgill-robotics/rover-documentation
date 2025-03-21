@@ -1,4 +1,4 @@
-# **Wrist Roll Motor**
+# Wrist Roll Motor
 ## Motor and Gearbox Specifications
 
 Electrical requirements:
