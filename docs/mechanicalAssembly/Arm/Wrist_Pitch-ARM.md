@@ -1,6 +1,6 @@
-# **Motor and Gearbox Specifications**
+# **Wrist Roll Motor**
+## Motor and Gearbox Specifications
 
-Wrist pitch motor  
 Electrical requirements:
 
 * Must be brushed  
@@ -29,9 +29,9 @@ Supplier info
 | Price ($) | 68.12 |
 | Link | https://ca.robotshop.com/products/e-s-motor-42mm-high-torque-planetary-gear-motor-w-encoder-24v-13rpm?qd=27b67613532d703a35f7fc44657f9aa6 |
 
-# **Mechanical Simulation and Analysis**
+## Mechanical Simulation and Analysis
 
-## Hand Calculations:
+### Hand Calculations:
 
 Since dynamic analysis is more appropriate here (than static analysis), we have to consider the moment of inertia. So, it was established that the wrist must be able to make half a rotation in one second:
 
@@ -53,5 +53,5 @@ The moment equation about the center of the small gear is:
 ![Tmotor=24.40= 8.80Nm](img-wristpitch/image9.png)  
 
 
-### Original notes:
+#### Original notes:
 ![](img-wristpitch/image10.png)
