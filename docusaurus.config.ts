@@ -42,7 +42,7 @@ const config: Config = {
             'https://github.com/mcgill-robotics/rover-documentation/blob/main',
         },
         fundamentals: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: './librarysidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
