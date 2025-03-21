@@ -1,6 +1,6 @@
 # Steering Mechanism
 
-### System: Drive
+**System:** Drive
 
 ## **Mechanical Design:**
 

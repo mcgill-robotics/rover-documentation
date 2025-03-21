@@ -1,6 +1,6 @@
 # Rocker Suspension
 
-System: Drive
+**System:** Drive
 
 ## **Mechanical Design:**
 
