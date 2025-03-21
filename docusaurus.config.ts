@@ -46,6 +46,7 @@ const config: Config = {
         docs: {
           path: 'docs',
           sidebarPath: './sidebars.ts',
+          exclude: ['fundamentals/**'],
           
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
