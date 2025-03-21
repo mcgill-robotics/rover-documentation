@@ -1,7 +1,13 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
+
+
 import type * as Preset from '@docusaurus/preset-classic';
 import type {Options as DocsOptions} from '@docusaurus/plugin-content-docs';
+import type {Options as BlogOptions} from '@docusaurus/plugin-content-blog';
+import type {Options as PageOptions} from '@docusaurus/plugin-content-pages';
+import type {Options as IdealImageOptions} from '@docusaurus/plugin-ideal-image';
+import type {Options as ClientRedirectsOptions} from '@docusaurus/plugin-client-redirects';
 
 
 
@@ -32,21 +38,6 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
-  plugins: [
-    [
-      'content-docs',
-      {
-        id: 'community',
-        path: 'community',
-        routeBasePath: 'community',
-        editCurrentVersion: true,
-        sidebarPath: './sidebarsCommunity.js',
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
-      } satisfies DocsOptions,
-    ],
-  ],
 
   presets: [
     [
