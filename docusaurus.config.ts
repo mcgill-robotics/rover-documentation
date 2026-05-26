@@ -154,7 +154,7 @@ const config: Config = {
           label: 'Fundamentals',
         },
         {
-          href: 'https://github.com/orgs/mcgill-robotics/projects/50',
+	  href:  'https://github.com/orgs/mcgill-robotics/projects/70/views/1',
           label: '📋Taskboard',
           position: 'right',
         },
