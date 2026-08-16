@@ -6,14 +6,10 @@ sidebar_position: 1
 
 Welcome to the official documentation for **McGill Robotics Rover Team**. This guide will help you understand the structure, systems, and software that power the McGill Rover. Whether you're a team member, contributor, or enthusiast, this documentation aims to provide all the resources you need to get started and stay informed.
 
-## Table of Contents
-
-
----
 
 ## Introduction
 
-The **McGill Rover Team** is dedicated to designing and building advanced rovers to compete in international competitions such as the University Rover Challenge (URC). Our mission is to innovate in robotics while fostering a collaborative environment for students.
+The **McGill Rover Team** is dedicated to designing and building advanced rovers to compete in international competitions such as the University Rover Challenge (URC) and the Canadian International Rover Challenge (CIRC). Our mission is to innovate in robotics while fostering a collaborative environment for students.
 
 ## Project Overview
 
@@ -39,12 +35,11 @@ We primarily use **ROS (Robot Operating System)** to manage our software compone
 
 The rover is equipped with state-of-the-art hardware for planetary exploration. Key systems include:
 
-- **Chassis & Suspension**: Designed for rugged terrains.
+- **Drive**: Designed for rugged terrains.
 - **Manipulator Arm**: Capable of precise movements for handling objects.
-- **Sensors**: Cameras, and environmental sensors for data collection.
+- **Communications**: Control of the rover drive and arm from afar, s knowledge through GPS and cameras.
 - **Power System**: Efficient power management to ensure optimal performance during missions.
 
-Detailed information can be found in the 
 
 ## Getting Started
 

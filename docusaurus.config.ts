@@ -154,15 +154,15 @@ const config: Config = {
           label: 'Fundamentals',
         },
         {
-	  href:  'https://github.com/orgs/mcgill-robotics/projects/70/views/1',
+	        href:  'https://github.com/orgs/mcgill-robotics/projects/70/views/1',
           label: '📋Taskboard',
           position: 'right',
         },
-        // {
-        //   href: 'https://github.com/mcgill-robotics/rover-documentation',
-        //   label: 'GitHub',
-        //   position: 'right',
-        // },
+        {
+           href: 'https://github.com/mcgill-robotics/rover-embedded-2027',
+           label: 'GitHub',
+           position: 'right',
+        },
         {
           href: 'https://docs.google.com/spreadsheets/d/1Oeg_WPtlBZXyiplVIpyahuClL3fWfGzlk_3tDz--Uok/edit?gid=0#gid=0',
           label: 'SpecIndex',
@@ -186,7 +186,7 @@ const config: Config = {
             },
             {
               label: 'Elec Taskboard',
-              href: 'https://github.com/orgs/mcgill-robotics/projects/50',
+              href: 'https://github.com/orgs/mcgill-robotics/projects/70/views/1',
             },
           ],
         },
@@ -224,7 +224,7 @@ const config: Config = {
             // },
             {
               label: 'GitHub Repo',
-              href: 'https://github.com/mcgill-robotics/rover-documentation',
+              href: 'https://github.com/mcgill-robotics/',
             },
           ],
         },

@@ -1,0 +1,7 @@
+credentials.json
+sync_manifest.json
+staging/
+cache/
+venv/
+*.pyc
+__pycache__/
