@@ -1,3 +1,7 @@
+---
+format: md
+---
+
 # **Cleaned Up Documentation**
 
 **Rover 2025-2026**  

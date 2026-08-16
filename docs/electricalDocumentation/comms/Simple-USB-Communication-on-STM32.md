@@ -1,3 +1,7 @@
+---
+format: md
+---
+
 **Simple USB communication on STM32**  
 This guide will explain how to get a virtual com port working on stm32 so we can get gps and pantilt working for QRC.t  
 **This guide assumes a CMAKE based build**

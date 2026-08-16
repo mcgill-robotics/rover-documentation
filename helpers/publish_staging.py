@@ -69,6 +69,17 @@ def dest_name(name: str):
 
     return None if REQUIRE_UNDERSCORE else stem + suffix
 
+def ensure_md_format_frontmatter(content: str) -> str:
+    """Force Docusaurus to treat this file as plain CommonMark instead of MDX,
+    so stray '{', '<', etc. from Drive/Word content don't break the build."""
+    FORMAT_LINE = "format: md"
+    if content.startswith("---\n"):
+        end = content.index("\n---", 4)
+        if FORMAT_LINE not in content[:end]:
+            return content[:end] + f"\n{FORMAT_LINE}" + content[end:]
+        return content
+    return f"---\n{FORMAT_LINE}\n---\n\n{content}"
+
 
 def publish_dir(src: Path, dest: Path, rel_prefix: str = ""):
     """Returns (added, updated, removed) -- lists of relative path strings,
@@ -110,6 +121,7 @@ def publish_dir(src: Path, dest: Path, rel_prefix: str = ""):
                 text = item.read_text(encoding='utf-8')
                 for old, new in rename_map.items():
                     text = text.replace(old + '/', new + '/')
+                text = ensure_md_format_frontmatter(text)
                 dest_path.write_text(text, encoding='utf-8')
             else:
                 shutil.copy2(item, dest_path)

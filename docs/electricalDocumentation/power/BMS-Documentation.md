@@ -1,3 +1,7 @@
+---
+format: md
+---
+
 We have a **JKBMS B1A8S10P-HC 3S-8S Heating CANBUS Active Balance BMS Balance Current 1A Continuous Current 100A Lifepo4 li-ion LTO Battery** in the rover cabinet that meets criteria for our BMS (6 cell, 3Volt setpoint for undervoltage or configureable, overcurrent configurable). 
 
 Certifications for it include: ISO9001, CE, FCC, ROHS, EMC

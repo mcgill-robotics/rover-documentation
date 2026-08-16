@@ -1,3 +1,7 @@
+---
+format: md
+---
+
 # **Hardware**
 
 # **Rover 2025-2026**
