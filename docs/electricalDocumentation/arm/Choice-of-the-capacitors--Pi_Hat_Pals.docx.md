@@ -8,7 +8,7 @@
   (calculated by 12 \* 65 + 21 \* (56-12) + 4 \* (38-12) - 2 \* 2 \* 4 =
   1792 mm\^2)
 
-![](cache/1mCZ4AH9ef5cL3o6f3lougL7oSsYOjpii/Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image4.jpg)\{width="5.767716535433071in"
+![](Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image4.jpg)\{width="5.767716535433071in"
 height="3.611111111111111in"\}
 
 **Combinations:\**
@@ -19,7 +19,7 @@ capacitance.
 [For the]\{.underline\} [Ceramic Capacitors, we found the one shown
 below]\{.underline\}:\
 ![图形用户界面, 文本, 应用程序 AI
-生成的内容可能不正确。](cache/1mCZ4AH9ef5cL3o6f3lougL7oSsYOjpii/Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image2.png)\{width="5.768055555555556in"
+生成的内容可能不正确。](Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image2.png)\{width="5.768055555555556in"
 height="1.9652777777777777in"\} Link: [[1206W107M6R3PB Aillen \|
 Capacitors \| DigiKey
 Marketplace]\{.underline\}](https://www.digikey.ca/en/products/detail/nextgen-components/1206W107M6R3PB/18676985?s=N4IgjCBcoEwAwBYCcVQGMoDMCGAbAzgKYA0IA9lANrhxwAEArQGIgC6pADgC5QgCqAOwCWXAPKYAsoWz4ArgCdCIAL6kAtDFQgMkLvNklyVEAFY2qkGoRadOAoYqRqSMADY4rkKTBwTAZhMzUhd3AHYvGn8Ta1JXALNWZQszaBAOKDBOdMgfOCSgA)
@@ -31,7 +31,7 @@ It has **100 uF** each, and each of them will occupy an area of 3.2 \*
 following]\{.underline\}:
 
 ![图片包含 图形用户界面 AI
-生成的内容可能不正确。](cache/1mCZ4AH9ef5cL3o6f3lougL7oSsYOjpii/Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image1.png)\{width="5.768055555555556in"
+生成的内容可能不正确。](Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image1.png)\{width="5.768055555555556in"
 height="1.8576388888888888in"\}
 
 Link: [[680 µF Aluminum Electrolytic Capacitors \| Electronic Components
@@ -56,7 +56,7 @@ All capacitors will be placed in parallel with each other.
 [One option for the female connectors is the 40 Position Header,
 Elevated Connector 0.100\" (2.54mm) Through Hole Gold:]\{.underline\}
 
-![](cache/1mCZ4AH9ef5cL3o6f3lougL7oSsYOjpii/Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image3.png)\{width="5.767716535433071in"
+![](Choice-of-the-capacitors--Pi_Hat_Pals.docx-img/media/image3.png)\{width="5.767716535433071in"
 height="2.6666666666666665in"\}
 
 What remains to be completed:

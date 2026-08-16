@@ -232,13 +232,23 @@ def convert_native_docx(file_bytes, dest_stem: Path):
     tmp_in.write_bytes(file_bytes)
     img_dir = dest_stem.parent / (dest_stem.name + '-img')
     img_dir.mkdir(parents=True, exist_ok=True)
+    md_path = dest_stem.parent / f"{dest_stem.name}.md"
+
     subprocess.run(
-        ['pandoc', str(tmp_in), '-o', str(dest_stem.parent / f"{dest_stem.name}.md"),
-         f'--extract-media={img_dir}'],
+        ['pandoc', str(tmp_in), '-o', str(md_path), f'--extract-media={img_dir}'],
         check=True,
     )
     tmp_in.unlink()
 
+    # Pandoc bakes the invocation-time --extract-media path (including the
+    # cache/<file_id>/ prefix) into the image references it writes. That
+    # path doesn't exist once this content is copied out of cache/ into
+    # staging/ and then docs/ -- only img_dir's own name survives, sitting
+    # as a sibling of the .md file. Rewrite refs to be relative to the .md
+    # itself, matching how convert_google_doc builds its own paths.
+    text = md_path.read_text(encoding='utf-8')
+    text = text.replace(str(img_dir) + '/', img_dir.name + '/')
+    md_path.write_text(text, encoding='utf-8')
 
 def convert_native_xlsx(file_bytes, dest_stem: Path):
     tmp_in = dest_stem.parent / f"__tmp_{dest_stem.name}.xlsx"
