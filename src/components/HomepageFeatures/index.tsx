@@ -12,7 +12,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Halley',
-    Png: require('@site/static/img/precursor_Halley.png').default,
+    Png: require('@site/static/img/Halley.jpg').default,
     description: (
       <>
         2025
