@@ -1,7 +1,3 @@
----
-format: md
----
-
 **Instructions to get an existing STM32 cmake project to work in VSCode**
 
 1. Install the STM32 vscode extension pack. This will download all the extensions needed to start working with STM32 in VSCode.

@@ -1,7 +1,3 @@
----
-format: md
----
-
 # **Boards**
 
 **Harnessing Guide for**  

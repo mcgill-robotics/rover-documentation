@@ -1,7 +1,3 @@
----
-format: md
----
-
 # **Hardware**
 
 # **Rover 2025-2026**
@@ -423,7 +419,7 @@ Checkout the latest version
 Adjust CMakeLists.txt  
 Add *add\_subdirectory(libs/ArduinoJSON)*  
 Change linked libraries to   
-*target\_link\_libraries(${CMAKE\_PROJECT\_NAME}*  
+*target\_link\_libraries($\{CMAKE\_PROJECT\_NAME\}*  
     *stm32cubemx*  
     *ArduinoJson*  
     *\# Add user defined libraries*  

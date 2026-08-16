@@ -1,7 +1,3 @@
----
-format: md
----
-
 # **Actual Documentation**
 
 **Rover 2025-2026**  

@@ -1,7 +1,3 @@
----
-format: md
----
-
 # **Main Documentation**
 
 **Arm Box PCB V2**  

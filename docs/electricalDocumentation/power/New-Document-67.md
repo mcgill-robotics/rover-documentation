@@ -1,7 +1,3 @@
----
-format: md
----
-
 # Distraction Tab
 
 Nothing to see here, move along.

@@ -1,7 +1,3 @@
----
-format: md
----
-
 # Tab 1
 
 # PanTilt Board Documentation

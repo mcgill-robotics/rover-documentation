@@ -30,6 +30,7 @@ Run by run_sync.sh right after drive_sync.py.
 import os
 import shutil
 import smtplib
+import re
 from datetime import datetime
 from email.message import EmailMessage
 from pathlib import Path
@@ -69,17 +70,29 @@ def dest_name(name: str):
 
     return None if REQUIRE_UNDERSCORE else stem + suffix
 
-def ensure_md_format_frontmatter(content: str) -> str:
-    """Force Docusaurus to treat this file as plain CommonMark instead of MDX,
-    so stray '{', '<', etc. from Drive/Word content don't break the build."""
-    FORMAT_LINE = "format: md"
-    if content.startswith("---\n"):
-        end = content.index("\n---", 4)
-        if FORMAT_LINE not in content[:end]:
-            return content[:end] + f"\n{FORMAT_LINE}" + content[end:]
-        return content
-    return f"---\n{FORMAT_LINE}\n---\n\n{content}"
+def sanitize_mdx_braces(text: str) -> str:
+    """MDX parses top-level '{...}' outside code as JS expressions. Content
+    synced from Google Docs/Word often has stray braces in plain prose
+    (e.g. pasted shell/CMake snippets not wrapped in code fences), which
+    breaks the build. Escape braces everywhere EXCEPT inside fenced
+    (```...```) or inline (`...`) code, where MDX already treats them as
+    literal text."""
+    def escape_plain(segment: str) -> str:
+        return segment.replace('{', '\\{').replace('}', '\\}')
 
+    # split on fenced code blocks first, leave those untouched entirely
+    fence_parts = re.split(r'(```[\s\S]*?```)', text)
+    for i, part in enumerate(fence_parts):
+        if part.startswith('```'):
+            continue
+        # within non-fenced text, also protect inline `code spans`
+        inline_parts = re.split(r'(`[^`\n]*`)', part)
+        for j, sp in enumerate(inline_parts):
+            if sp.startswith('`') and sp.endswith('`') and len(sp) > 1:
+                continue
+            inline_parts[j] = escape_plain(sp)
+        fence_parts[i] = ''.join(inline_parts)
+    return ''.join(fence_parts)
 
 def publish_dir(src: Path, dest: Path, rel_prefix: str = ""):
     """Returns (added, updated, removed) -- lists of relative path strings,
@@ -121,7 +134,7 @@ def publish_dir(src: Path, dest: Path, rel_prefix: str = ""):
                 text = item.read_text(encoding='utf-8')
                 for old, new in rename_map.items():
                     text = text.replace(old + '/', new + '/')
-                text = ensure_md_format_frontmatter(text)
+                text = sanitize_mdx_braces(text)   # <-- replaces ensure_md_format_frontmatter
                 dest_path.write_text(text, encoding='utf-8')
             else:
                 shutil.copy2(item, dest_path)

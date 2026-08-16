@@ -1,7 +1,3 @@
----
-format: md
----
-
 **Simple USB communication on STM32**  
 This guide will explain how to get a virtual com port working on stm32 so we can get gps and pantilt working for QRC.t  
 **This guide assumes a CMAKE based build**
@@ -10,9 +6,9 @@ This guide will explain how to get a virtual com port working on stm32 so we can
    Merge changes from main into your branch.  
 2. Setup the rosjam2 library using the [setup-dep.sh](http://setup-dep.sh) script(for Linux) or setup-dep.bat script(for Windows). Those are in the rosjam2 folder.  
 3. Add the following lines into the CMakeLists.txt of your project   
-* set(CMAKE\_EXE\_LINKER\_FLAGS "${CMAKE\_EXE\_LINKER\_FLAGS} \-u \_printf\_float")  
-* add\_subdirectory(../ROSJam2/src "${CMAKE\_CURRENT\_BINARY\_DIR}/ROSJam2\_build")  
-* target\_link\_libraries(${CMAKE\_PROJECT\_NAME}
+* set(CMAKE\_EXE\_LINKER\_FLAGS "$\{CMAKE\_EXE\_LINKER\_FLAGS\} \-u \_printf\_float")  
+* add\_subdirectory(../ROSJam2/src "$\{CMAKE\_CURRENT\_BINARY\_DIR\}/ROSJam2\_build")  
+* target\_link\_libraries($\{CMAKE\_PROJECT\_NAME\}
 
       stm32cubemx
 

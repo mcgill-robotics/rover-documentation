@@ -1,7 +1,3 @@
----
-format: md
----
-
 # Introduction
 
 # Buck Converter Version 2 (WORKS)
