@@ -154,6 +154,11 @@ const config: Config = {
           label: 'Fundamentals',
         },
         {
+	        href:  'https://drive.google.com/drive/folders/1Iajf94SfKviL23lF0F9HJAyPKeObvpQU?usp=drive_link',
+          label: 'Shared Google Drive',
+          position: 'right',
+        },
+        {
 	        href:  'https://github.com/orgs/mcgill-robotics/projects/70/views/1',
           label: '📋Taskboard',
           position: 'right',
