@@ -3,7 +3,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
 
   electricalDocumentationSidebar: [
-    'rover-document',
+    'rover-document', 
     {
       type: 'category',
       label: 'Electrical Documentation',
