@@ -4,9 +4,8 @@ run) and copies content into the live repo's docs/ tree. _category_.json
 files and plain ALL-CAPS category folders always pass through unchanged.
 
 UNDERSCORE TOGGLE
-  REQUIRE_UNDERSCORE = True  (default): only items whose name starts with
-    "_" get published, with the underscore stripped on the way in --
-    everything else stays synced-and-cached in staging/ but off the site.
+  REQUIRE_UNDERSCORE = True  (default): only items whose name DONT start with
+    "_" get published, everything else stays synced-and-cached in staging/ but off the site.
   REQUIRE_UNDERSCORE = False: publish everything found in staging/, no
     filtering. Can also be set per-run without editing the file:
       SYNC_REQUIRE_UNDERSCORE=0 ./run_sync.sh
@@ -59,16 +58,23 @@ def dest_name(name: str):
 
     stem, suffix = Path(name).stem, Path(name).suffix
 
+    # Images/folders ending in -img
     if stem.endswith('-img'):
         base = stem[:-len('-img')]
+
+        # Underscore-prefixed -img items are hidden
         if base.startswith('_'):
-            return base[1:] + '-img'
-        return None if REQUIRE_UNDERSCORE else base + '-img'
+            return None if REQUIRE_UNDERSCORE else base[1:] + '-img'
 
+        return base + '-img'
+
+    # Underscore-prefixed files are hidden
     if stem.startswith('_'):
-        return stem[1:] + suffix
+        return None if REQUIRE_UNDERSCORE else stem[1:] + suffix
 
-    return None if REQUIRE_UNDERSCORE else stem + suffix
+    # Normal files are published
+    return stem + suffix
+
 
 def sanitize_mdx_braces(text: str) -> str:
     """MDX parses top-level '{...}' outside code as JS expressions. Content

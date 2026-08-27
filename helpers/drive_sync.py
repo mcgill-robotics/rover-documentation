@@ -15,18 +15,26 @@ WHAT THIS DOES EVERY RUN
      changed, even though the folder listing itself is re-walked
      every run (that part is cheap metadata-only calls).
   3. No underscore filtering happens here -- everything found inside
-     an ALL-CAPS category folder gets synced. Underscore-based
-     selection of what goes LIVE on the site happens later, in
-     publish_staging.py.
+     a synced folder gets synced. Underscore-based selection of what
+     goes LIVE on the site happens later, in publish_staging.py.
 
-FOLDER RULES
-  <Department>/                   <- one entry in DEPARTMENTS, pointed at
-                                      directly by folder ID (e.g. "Electrical")
-                                      -> becomes its own sidebar category/tab
-      Tutorials/                  <- not ALL-CAPS -> SKIPPED
-      POWER/                      <- ALL-CAPS -> SYNCED
-        <anything>/                  everything inside, any casing,
-                                      is included recursively
+TWO CONTENT SHAPES
+
+  DEPARTMENTS (-> docs/<slug>/, folded into the "Documentation" tab):
+      <Department>/                <- e.g. "Electrical"
+          Tutorials/                <- not ALL-CAPS -> SKIPPED
+          POWER/                    <- ALL-CAPS -> SYNCED (a category)
+              <anything>/               everything inside, any casing,
+                                         is included recursively
+
+  HANDBOOKS (-> docs/handbook/<slug>/, powers the separate "Handbook" tab):
+      <Handbook root>/             <- e.g. "Elec Handbook"
+          Any Subfolder/            <- ALWAYS synced (a "subtab"/category,
+                                        no ALL-CAPS filter -- a handbook's
+                                        subfolders are already a deliberately
+                                        curated table of contents)
+              <anything>/               everything inside, any casing,
+                                         is included recursively
 """
 import re, io, json, shutil, subprocess, hashlib, base64, zipfile
 from pathlib import Path
@@ -48,6 +56,19 @@ SERVICE_ACCOUNT_FILE = 'credentials.json'
 # Add more departments here later, e.g. 'Mechanical': '...ID...'.
 DEPARTMENTS = {
     'Electrical': '1iqUM0cXgjagoZwO95iYEpEQeOBBlGwUK',  # <-- Electrical's own folder ID
+}
+
+# Same idea, but for handbook-style content -- every direct subfolder of a
+# handbook root becomes a sidebar category ("subtab") with NO ALL-CAPS
+# filtering. Add more handbook roots here later the same way, e.g.
+# 'Mech Handbook': '...ID...'. All handbook roots live together under the
+# single "Handbook" navbar tab (see handbookSidebar in sidebars.ts).
+HANDBOOKS = {
+    'Elec Handbook': '1RyqQCgMESoat4u__m2uzVGwy9QVg4YTv',  # <-- grab from the folder's Drive URL
+}
+
+HARNESSING = {
+    'Harnessing': '1i8_CjQ1qllqLwsCzIGsqnZ8GuKQ6loni'
 }
 
 STAGING_DIR = Path('staging')       # wiped + rebuilt every run
@@ -111,6 +132,18 @@ def department_slug_and_label(name):
         slug = 'department'
     slug = slug[0].lower() + slug[1:] + 'Documentation'
     return slug, f"{name} Documentation"
+
+
+def handbook_slug_and_label(name):
+    """Like department_slug_and_label, but doesn't force-append a suffix --
+    a handbook root's Drive name (e.g. "Elec Handbook") is already the
+    label you want, and slugging needs real word-boundary camelCasing
+    since these names are more often multi-word."""
+    words = re.sub(r'[^A-Za-z0-9]+', ' ', name).strip().split()
+    if not words:
+        words = ['handbook']
+    slug = words[0].lower() + ''.join(w.capitalize() for w in words[1:])
+    return slug, name
 
 
 def category_slug(name):
@@ -195,8 +228,54 @@ def _match_images(base64_images, docx_images):
 
 
 # ------------------------------------------------------------ per-type conversion
-def convert_google_doc(file_id, dest_stem: Path):
+def remove_exported_tab_title(md_text: str, doc_name: str) -> str:
+    """
+    Remove the Google Docs tab title if Google Docs exported it as the
+    first Markdown heading.
+
+    The actual Google Drive file name is used by the sync system as the
+    canonical document name, so the tab name should not become the
+    Docusaurus page title.
+    """
+    lines = md_text.splitlines()
+
+    # Find the first non-empty line.
+    first = next(
+        (i for i, line in enumerate(lines) if line.strip()),
+        None
+    )
+
+    if first is None:
+        return md_text
+
+    line = lines[first].strip()
+
+    # Google Docs Markdown export generally represents a title as # Title.
+    if line.startswith('# '):
+        exported_title = line[2:].strip()
+
+        # Only remove it if it is NOT the actual Drive document name.
+        # This prevents accidentally deleting a legitimate document title.
+        if exported_title != doc_name.strip():
+            lines.pop(first)
+
+            # Remove the blank separator that commonly follows the heading.
+            if first < len(lines) and not lines[first].strip():
+                lines.pop(first)
+
+            return '\n'.join(lines)
+
+    return md_text
+
+def convert_google_doc(file_id, dest_stem: Path, doc_name: str):
     md_text = export_bytes(file_id, 'text/markdown').decode('utf-8')
+
+    # Google Docs can export the active tab's name as the first Markdown
+    # heading. We don't want the tab name to become the Docusaurus title.
+    # The Drive file name (doc_name) is the canonical document name.
+    md_text = remove_exported_tab_title(md_text, doc_name)    
+    md_text = f"---\ntitle: {doc_name}\n---\n\n" + md_text
+
     base64_images = re.findall(
         r'\[(image\d+)\]:\s*<data:image/(\w+);base64,([A-Za-z0-9+/=]+)>', md_text)
     base64_images = [(ref, ext, base64.b64decode(b64)) for ref, ext, b64 in base64_images]
@@ -287,7 +366,7 @@ def refresh_cache_and_copy(item, dest_dir: Path):
 
     if mime == DOC_MIME:
         print(f"  [convert] doc: {name}")
-        convert_google_doc(file_id, stem)
+        convert_google_doc(file_id, stem, name)    
     elif mime == SLIDES_MIME:
         print(f"  [convert] slides -> pdf: {name}")
         (cdir / f"{safe_filename(name)}.pdf").write_bytes(export_bytes(file_id, 'application/pdf'))
@@ -321,7 +400,8 @@ def sync_file(item, dest_dir: Path, manifest):
 
 # ------------------------------------------------------------ folder walk
 def sync_category_folder(folder_id, dest_dir: Path, manifest):
-    """Inside an ALL-CAPS category folder: sync everything, any casing, recursively.
+    """Inside a synced folder (an ALL-CAPS department category, or a
+    handbook subtab): sync everything, any casing, recursively.
     A failure on any single file is caught and logged rather than aborting the
     whole run -- that file is simply left out of the manifest, so it's retried
     (and, if it keeps failing, keeps getting logged) on the next run."""
@@ -353,6 +433,64 @@ def sync_department_folder(folder_id, dept_name, staging_dir: Path, manifest):
         sync_category_folder(item['id'], cat_dest, manifest)
 
 
+def sync_handbook_folder(folder_id, handbook_name, staging_dir: Path, manifest):
+    """A handbook root's direct subfolders each become a sidebar category
+    (a "subtab") -- unlike sync_department_folder, there's no ALL-CAPS
+    filter: a handbook's subfolders are already a deliberately curated
+    table of contents, not a mixed bag needing a filter. Multiple handbook
+    roots (if added to HANDBOOKS later) all nest under docs/handbook/, so
+    they share the single "Handbook" navbar tab automatically."""
+    slug, label = handbook_slug_and_label(handbook_name)
+    hb_dest = staging_dir / 'electricalHandbook'
+    hb_dest.mkdir(parents=True, exist_ok=True)
+    (hb_dest / '_category_.json').write_text(json.dumps({"label": label, "position": 10}, indent=2))
+
+    for item in list_children(folder_id):
+        if item['mimeType'] != FOLDER_MIME:
+            print(f"  [skip] file directly in handbook root (expected a subfolder): {item['name']}")
+            continue
+        cat_dest = hb_dest / category_slug(item['name'])
+        cat_dest.mkdir(parents=True, exist_ok=True)
+        (cat_dest / '_category_.json').write_text(
+            json.dumps({"label": item['name'].title(), "position": 10}, indent=2))
+        sync_category_folder(item['id'], cat_dest, manifest)
+
+
+def sync_harnessing_folder(folder_id, staging_dir: Path, manifest):
+    """
+    Sync the Harnessing Drive root directly into staging/harnessing/.
+
+    Every folder and file is preserved recursively so the Docusaurus
+    autogenerated sidebar follows the Google Drive structure.
+    """
+    harness_dest = staging_dir / 'harnessing'
+    harness_dest.mkdir(parents=True, exist_ok=True)
+
+    for item in list_children(folder_id):
+        if item['mimeType'] == FOLDER_MIME:
+            folder_dest = harness_dest / safe_filename(item['name'])
+            folder_dest.mkdir(parents=True, exist_ok=True)
+
+            (folder_dest / '_category_.json').write_text(
+                json.dumps(
+                    {
+                        "label": item['name'],
+                        "position": 10
+                    },
+                    indent=2
+                )
+            )
+
+            sync_category_folder(item['id'], folder_dest, manifest)
+
+        else:
+            try:
+                sync_file(item, harness_dest, manifest)
+            except Exception as e:
+                print(f"  [error] failed to sync '{item['name']}': {e}")
+                print("          skipping this file -- will retry next run")
+
+
 def load_manifest():
     return json.loads(MANIFEST_PATH.read_text()) if MANIFEST_PATH.exists() else {}
 
@@ -372,6 +510,14 @@ def main():
     for dept_name, folder_id in DEPARTMENTS.items():
         print(f"Department: {dept_name}")
         sync_department_folder(folder_id, dept_name, STAGING_DIR, manifest)
+
+    for hb_name, folder_id in HANDBOOKS.items():
+        print(f"Handbook: {hb_name}")
+        sync_handbook_folder(folder_id, hb_name, STAGING_DIR, manifest)
+
+    for harness_name, folder_id in HARNESSING.items():
+        print(f"Harnessing: {harness_name}")
+        sync_harnessing_folder(folder_id, STAGING_DIR, manifest)
 
     save_manifest(manifest)
     print("Done -- staging/ rebuilt from current Drive contents.")

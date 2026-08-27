@@ -137,21 +137,21 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'electricalDocumentationSidebar',
           position: 'left',
-          label: 'Documentation',
+          label: 'Electrical Documentation',
         },
-        // {
-        //   type: 'fundamentalsSidebar',
-        //   sidebarId: 'fundamentalSidebar',
-        //   position: 'left',
-        //   label: 'Fundamentals',
-        // },
         {
           type: 'docSidebar',
+          sidebarId: 'electricalHandbookSidebar',
           position: 'left',
-          sidebarId: 'fundamentalsSidebar',
-          label: 'Fundamentals',
+          label: 'Electrical Handbook',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'harnessingSidebar',
+          position: 'left',
+          label: 'Harnessing',
         },
         {
 	        href:  'https://drive.google.com/drive/folders/1Iajf94SfKviL23lF0F9HJAyPKeObvpQU?usp=drive_link',
