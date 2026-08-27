@@ -1,5 +1,5 @@
 ---
-title: Part 3: Advanced Topics/Extras
+title: "Part 3: Advanced Topics/Extras"
 ---
 
 **Advanced Topics/Extras**
@@ -30,7 +30,7 @@ Examples of libraries using these scripts can be found in the examples folder of
 
 **Creating Libraries**
 
-In the folder for your project, create a src folder where you will put the code. In that folder, you will need to create a CMakeLists.txt (the casing matters). In the src folder, you will also add all the files for your library and put them in the CMakeLists.txt to compile. 
+In your project folder, create a src folder where you will put the code. In that folder, you will need to create a CMakeLists.txt (the casing matters). In the src folder, you will also add all the files for your library and put them in the CMakeLists.txt to compile. 
 
 For the structure of the CMakeLists.txt follow these files:  
 [https://github.com/mcgill-robotics/rover-embedded-2027/blob/main/examples/library\_uart\_handler/src/CMakeLists.txt](https://github.com/mcgill-robotics/rover-embedded-2027/blob/main/examples/library_uart_handler/src/CMakeLists.txt) for a library that needs the STM32 HAL and [https://github.com/mcgill-robotics/rover-embedded-2027/blob/main/examples/library\_command\_parser/src/CMakeLists.txt](https://github.com/mcgill-robotics/rover-embedded-2027/blob/main/examples/library_command_parser/src/CMakeLists.txt) for a library that does not need the STM32 HAL.

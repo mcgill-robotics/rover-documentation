@@ -1,5 +1,5 @@
 ---
-title: Part 2: Working with the Git repository 
+title: "Part 2: Working with the Git repository "
 ---
 
 **Working with the Git repository** 
@@ -37,7 +37,7 @@ For files, you can name them however you like (except for python files in the br
 * Make a commit with git commit  
 * Then push your changes with git push
 
-PS: Make sure you read the rest of this document before doing anything, it answers some questions you may have about committingz branching and pushing.
+PS: Make sure you read the rest of this document before doing anything, it answers some questions you may have about committing, branching and pushing.
 
 **Should I push to the main branch?**
 

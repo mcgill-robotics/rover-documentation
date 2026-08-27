@@ -1,12 +1,12 @@
 ---
-title: Part 1: Git Basics
+title: "Part 1: Git Basics"
 ---
 
 **Git Basics**
 
 We use Git for version control and for collaborating when writing our code. The code is stored on Github at [https://github.com/mcgill-robotics/rover-embedded-2027](https://github.com/mcgill-robotics/rover-embedded-2027) (Complain to your leads if this link has not been updated for the correct year). This document will help you learn (or serve as a cheatsheet) how to use some basic Git commands.
 
-**Learn Git**
+**Learn Git\!**
 
 If you have never used git before here’s a tutorial to get to know the basics (and more):  
 [https://learngitbranching.js.org/](https://learngitbranching.js.org/) 
