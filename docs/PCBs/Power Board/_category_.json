@@ -1,8 +1,0 @@
-{
-  "label": "Power Board",
-  "position": 1,
-  "link": {
-    "type": "generated-index",
-    "description": "Sub-System: Power"
-  }
-}

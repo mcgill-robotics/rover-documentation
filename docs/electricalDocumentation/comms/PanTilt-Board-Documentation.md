@@ -1,4 +1,8 @@
-# Tab 1
+---
+title: PanTilt Board Documentation
+---
+
+# PanTilt Board Documentation
 
 # PanTilt Board Documentation
 

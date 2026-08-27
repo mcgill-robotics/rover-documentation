@@ -1,4 +1,6 @@
-# **Hardware**
+---
+title: UART Board Documentation
+---
 
 # **Rover 2025-2026**
 
@@ -8,6 +10,8 @@
 
 The UART board helps connect multiple systems to the Jetson Nano by passing up to 6 UARTs inputs to a single USB-C input.
 
+![](UART-Board-Documentation-img/image1.png)
+
 # **Components**
 
 ## Overview
@@ -16,7 +20,7 @@ The microcontroller used for this board is the standardized [STM32G474RET6](http
 
 ## Pinout
 
-![](UART-Board-Documentation-img/image1.png)
+![](UART-Board-Documentation-img/image2.png)
 
 ## Oscillator
 
@@ -86,12 +90,12 @@ RS-485 (UART5):
 For RS-232, the [MAX3232EIPWR](https://www.digikey.ca/en/products/detail/texas-instruments/MAX3232EIPWR/968150) transceiver IC is used to get the required voltages for the RS-232 standard. It requires the multiple 0.1 uF capacitors for 3.3 V power as detailed in its datasheet in addition to RX, TX, GND, CTS, and RTS.
 
 **RS-232 Transceiver Typical Application:**  
-![](UART-Board-Documentation-img/image2.png)
+![](UART-Board-Documentation-img/image3.png)
 
 For RS-485, the [THVD1400DR](https://www.digikey.ca/en/products/detail/texas-instruments/THVD1400DR/13636656) transceiver IC is used to convert RX and TX into the differential pair A and B with the required voltages. Since this connector would be at the end of a bus, it requires a termination resistor of 120 Ohm. It requires a 0.1 uF capacitor for power and a 10 kOhm pull-down resistor for the DE pin from the STM32, which connects to both DE and nRE pins on the IC.
 
 **RS-485 Transceiver IC Typical Application:**  
-![](UART-Board-Documentation-img/image3.png)
+![](UART-Board-Documentation-img/image4.png)
 
 ## TVS Diodes
 
@@ -105,8 +109,8 @@ Different TVS diodes are used for the RS-232 and RS-485 transceiver ICs. Differe
 
 ## Layout
 
-Top Side![](UART-Board-Documentation-img/image4.png)  
-Bottom Side![](UART-Board-Documentation-img/image5.png)  
+Top Side![](UART-Board-Documentation-img/image5.png)  
+Bottom Side![](UART-Board-Documentation-img/image6.png)  
 The USB Type-C connector is at the bottom of the board, with the BMS connectors at the top (isolated UARTs, RS-485 will likely be used for the BMS as well). In the top-left corner, there is the external power connector. In the bottom-left corner, there is the first GPS UART, and on the right side, there are the second GPS UART and RS-232 connectors. SWD debug and 3.3 V, GND connections are available to the right of the USB-C connector, with boot and reset buttons on top of them.
 
 The board is 80.0 mm x 70.0 mm, with rounded corners (3.0 mm radius). The mounting holes are 3.0 mm away from the edge of the PCB.
@@ -176,29 +180,29 @@ Benefits: Controllable via MCU(dont know if thats actually useful for us)
 Limited to 2.5A and to a 6V input
 
 *Dual Schottky diode:*  
-![](UART-Board-Documentation-img/image6.png)  
+![](UART-Board-Documentation-img/image7.png)  
 Pic from Raspberry Pi Pico datasheet  
 Downsides: Largest voltage always wins (If external power dips under VBUS, USB port will pull power(we might not want that))
 
 *Schottky \+ P-MOSFET:*  
-**![](UART-Board-Documentation-img/image7.png)**  
+**![](UART-Board-Documentation-img/image8.png)**  
 Pic from Raspberry Pi Pico datasheet
 
-![](UART-Board-Documentation-img/image8.png)  
-Possible general power setup for boards with USB  
 ![](UART-Board-Documentation-img/image9.png)  
+Possible general power setup for boards with USB  
+![](UART-Board-Documentation-img/image10.png)  
 Alternative supply scheme if *V+* \<= 3.3V  
 Might be the best option. Cheaper than dedicated power mux IC and allows controlling priority (favor external if present) without relying on external source to have a higher voltage  
-![](UART-Board-Documentation-img/image10.png)  
+![](UART-Board-Documentation-img/image11.png)  
 Relevant info for checking suitable mosfet  
 *Note: Check cost and performance benefit of replacing Schottky diodes with Ideal Diode Controllers (Probably more expensive and complex)*
 
 [https://www.digikey.ca/en/products/detail/diodes-incorporated/DFLS130L-7/673198](https://www.digikey.ca/en/products/detail/diodes-incorporated/DFLS130L-7/673198) Chosen Schottky diode  
 [https://www.digikey.ca/en/products/detail/diodes-incorporated/DMG2305UX-7/4340667](https://www.digikey.ca/en/products/detail/diodes-incorporated/DMG2305UX-7/4340667) Chosen P-MOSFET
 
-*![](UART-Board-Documentation-img/image11.png)*  
+*![](UART-Board-Documentation-img/image12.png)*  
 Simulation used for testing the circuit  
-![](UART-Board-Documentation-img/image12.png)  
+![](UART-Board-Documentation-img/image13.png)  
 Results from connecting and disconnecting both VBUS and Vext in sequence
 
 On a disconnection/connection of the Vext supply the 5V supply may dip as low as 4.13V but will stabilize around 4.7V for both VBUS and Vext power. This should be high enough to power the LDO which has at 600mA a max Vdrop of 400mV such that a 3.3V output can be reliably generated as long as we give 3.7V. 4.7 should also be enough to power MCP2561/2 transceivers which expect a VDD of at least 4.5V
@@ -233,9 +237,9 @@ Need 8 pF capacitors to drive the crystal
 No need for LSE crystal for LPUART (can be configured from system clock) in cubeide
 
 Pinout (tentative)  
-![](UART-Board-Documentation-img/image13.png)  
+![](UART-Board-Documentation-img/image14.png)  
 Old pinout  
-![](UART-Board-Documentation-img/image14.png)
+![](UART-Board-Documentation-img/image15.png)
 
 TODO  
 Added PA10 for VBUS sensing  
@@ -243,7 +247,7 @@ Added  PA9 for USB D+ resistor pullup
 Added PB12 for NIRQ of SPI to Dual UART IC
 
 Clock setup(tentative), probably needs to be updated  
-![](UART-Board-Documentation-img/image15.png)
+![](UART-Board-Documentation-img/image16.png)
 
 **USB-C**
 
@@ -257,7 +261,7 @@ DN1, DN2, DP1, DN2 are the DP, DN (or D+, D-) differential pair, there are 2 to 
 CC1 and CC2 (configuration) must have the appropriate resistors to have enough current over the usb connection \-\> 5K1 Ohm resistors ([https://www.digikey.ca/en/products/detail/yageo/RC0603FR-075K1L/727268](https://www.digikey.ca/en/products/detail/yageo/RC0603FR-075K1L/727268) )  
 SBU1 and SBU2 (Sideband use) are not needed as we are only usb using 2.0 FS (no alt modes)  
 Shield goes to ground  
-![](UART-Board-Documentation-img/image16.png)  
+![](UART-Board-Documentation-img/image17.png)  
 [https://usb.org/document-library/usb-type-cr-cable-and-connector-specification-release-24](https://usb.org/document-library/usb-type-cr-cable-and-connector-specification-release-24)   
 Usb-c spec 2.4 shield should be connected to ground (p. 47\)
 
@@ -265,7 +269,7 @@ From usb-c spec on connector end DP1 and DP2 (same for DN) can be shorted as clo
 [https://www.usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf](https://www.usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf) 
 
 No need for usb termination resistors they are embedded in the mcu(see p. 174 of [datasheet](https://www.st.com/resource/en/datasheet/stm32g473re.pdf)) (maybe add pads just in case it doesn't work so we at worst at a 22 ohm)  
-![](UART-Board-Documentation-img/image17.png)
+![](UART-Board-Documentation-img/image18.png)
 
 Figure out how to handle self-powered device(may need VBUS monitoring to disable internal pull up) in case the hub is not VBUS powered  
 (Add external pull up also just in case would be 1.5k if placed on dp line on connector side relative to termination pads)  
@@ -288,7 +292,7 @@ RS-232 transceiver(tentative)
 [https://www.digikey.ca/en/products/detail/texas-instruments/MAX3232EIPWR/968150](https://www.digikey.ca/en/products/detail/texas-instruments/MAX3232EIPWR/968150)   
 (We can power from a 3.3V input such that the receiver high level output voltage is 3.3-0.1 so the stm32’s rx pin is not damaged from a high voltage)  
 There are 2 driver/receivers(one is used for rx,tx, the other for cts,rts)  
-![](UART-Board-Documentation-img/image18.png)  
+![](UART-Board-Documentation-img/image19.png)  
 Rin is rx from connector  
 Rout is Rx from stm32  
 Din is Tx from stm32  
@@ -302,7 +306,7 @@ D is for rts
 
 Rs-485 transceiver(tentative)  
 [https://www.digikey.ca/en/products/detail/texas-instruments/THVD1400DR/13636656](https://www.digikey.ca/en/products/detail/texas-instruments/THVD1400DR/13636656)   
-![](UART-Board-Documentation-img/image19.png)
+![](UART-Board-Documentation-img/image20.png)
 
 Level Shifter for TTL uart (not needed, gps output 3.3V logic level from gps datasheet) [https://content.u-blox.com/sites/default/files/products/documents/NEO-7\_DataSheet\_%28UBX-13003830%29.pdf](https://content.u-blox.com/sites/default/files/products/documents/NEO-7_DataSheet_%28UBX-13003830%29.pdf) ):  
 [https://www.digikey.ca/en/products/detail/nexperia-usa-inc/NXS0102DC-Q100H/13575107](https://www.digikey.ca/en/products/detail/nexperia-usa-inc/NXS0102DC-Q100H/13575107) 
@@ -374,7 +378,7 @@ Or dcd\_connect and dcd\_disconnect if using tinyusb
 Implement booting into USB DFU  
 [https://www.st.com/resource/en/application\_note/cd00167594-stm32-microcontroller-system-memory-boot-mode-stmicroelectronics.pdf](https://www.st.com/resource/en/application_note/cd00167594-stm32-microcontroller-system-memory-boot-mode-stmicroelectronics.pdf)   
 Pattern for STM32g474RE  
-![](UART-Board-Documentation-img/image20.png)
+![](UART-Board-Documentation-img/image21.png)
 
 **UART**  
 Read mcu’s native uart ports(with DMA?)
@@ -481,6 +485,7 @@ Decode full MessagePack data into Json, implicit topic string gets assigned key 
 **BUG:**  
 STM32CubeMX version 6.18.0 changes the STM32G474XXX\_FLASH.ld file name to STM32G474xxx\_FLASH.ld. When generating with the new version, it will create a new file with that specific name. Projects such as GPS/ still only compile using the old file name, and removing it will give compilation errors. Either ignore the new file name or rename the new file with the old name.  
 \* Unknown whether new projects have the same issue.
+
 
 
 

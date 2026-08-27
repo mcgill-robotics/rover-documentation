@@ -1,4 +1,6 @@
-# **Main Documentation**
+---
+title: ROV2026_ArmBoxPCB_Documentation_v2
+---
 
 **Arm Box PCB V2**  
 **Documentation**
